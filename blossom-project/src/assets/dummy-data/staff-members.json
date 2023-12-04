@@ -1,0 +1,30 @@
+[
+  {
+    "id": 1,
+    "name": "Heather Wood",
+    "contactInfo": {
+      "email": "heather.wood@email.com",
+      "phone": "123-456-7890",
+      "address": "23 Oak Street, Southbrook, QLD 4364"
+    },
+    "role": "Nurse",
+    "vaccinationStatus": [
+      "Not assessed","Scheduled for assessment","Completed"
+    ],
+    "medicalHistory": "Allergies: nuts, apples. Currently using diabetic medication. Not vaccinated for COVID-19.",
+    "notes": ""
+  },
+  {
+    "id": 2,
+    "name": "John Siva",
+    "contactInfo": {
+      "email": "john.siva@egmail.com",
+      "phone": "987-654-3210",
+      "address": "25 John Street, Adelaide, SA 5000"
+    },
+    "role": "Nurse",
+    "medicalHistory": "No known allergies. Vaccinations: Influenza (administered on 2017-06-05, no booster required), COVID-19 (administered on 2022-02-20, no booster required).",
+    "vaccinationStatus": ["Completed"],
+    "notes": ""
+  }
+]

@@ -1,0 +1,32 @@
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12">
+      <div ngbAccordion [closeOthers]="true" #accordion="ngbAccordion">
+        <ng-container *ngFor="let task of tasks; trackBy: trackTaskById">
+          <div ngbAccordionItem>
+            <h2 ngbAccordionHeader>
+              <button ngbAccordionButton>{{ task.title }}</button>
+            </h2>
+            <div ngbAccordionCollapse ngbPanelContent>
+
+              <app-task [task]="task" (onComplete)="markAsComplete(task)">
+              </app-task>
+            </div>
+          </div>
+        </ng-container>
+
+        <!-- in case there are no tasks -->
+        <div ngbAccordionItem *ngIf="tasks.length === 0">
+          <h2 ngbAccordionHeader>
+            <button ngbAccordionButton>No Tasks Found</button>
+          </h2>
+          <div ngbAccordionCollapse ngbPanelContent>
+            <div class="card mb-2">
+              <div class="card-body">There are no tasks to display.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

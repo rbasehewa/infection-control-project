@@ -1,0 +1,37 @@
+[
+    {
+        "id": 1,
+        "title": "Assess Vaccination Status",
+        "description": "Review new staff vaccination records",
+        "dueDate": "2023-07-01T09:00:00Z",
+        "status": "Pending"
+    },
+    {
+        "id": 2,
+        "title": "Follow Up on Hepatitis B Vaccination",
+        "description": "Check if staff member has completed Hepatitis B vaccination series",
+        "dueDate": "2023-07-05T15:00:00Z",
+        "status": "Pending"
+    },
+    {
+        "id": 3,
+        "title": "COVID-19 Booster Outreach",
+        "description": "Plan a schedule for staff COVID-19 booster shots",
+        "dueDate": "2023-07-10T13:00:00Z",
+        "status": "In Progress"
+    },
+    {
+        "id": 4,
+        "title": "Annual Flu Shot Clinic",
+        "description": "Organize the annual flu shot clinic for staff",
+        "dueDate": "2023-08-01T10:00:00Z",
+        "status": "Pending"
+    },
+    {
+        "id": 5,
+        "title": "Infection Control Training",
+        "description": "Prepare materials for next infection control training session",
+        "dueDate": "2023-09-01T12:00:00Z",
+        "status": "Completed"
+    }
+]

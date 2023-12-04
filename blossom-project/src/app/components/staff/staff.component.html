@@ -1,0 +1,133 @@
+<div class="container my-5">
+  <div class="row">
+    <!-- Staff Details Card on the Left -->
+    <div class="col-md-6">
+      <div class="card staff-card">
+        <div class="card-header">Staff Details</div>
+        <div class="card-search">
+          <input
+            type="text"
+            [(ngModel)]="searchStaffTerm"
+            (input)="searchStaff(searchStaffTerm)"
+            placeholder="Search staff..."
+            class="form-control"
+          />
+          <button
+            type="button"
+            class="btn btn-default"
+            (click)="searchStaffTerm = ''; searchStaff('')"
+          >
+            <span class="text-danger">Clear</span>
+          </button>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li
+            class="list-group-item"
+            *ngFor="let member of filteredStaffMembers; let i = index"
+          >
+            <strong (click)="toggleDetails(member)">{{ member.name }}</strong>
+            <div *ngIf="member.showDetails">
+              <p>Role: {{ member.role }}</p>
+              <p>Contact: {{ member.contactInfo.phone }}</p>
+
+              <!-- Dropdown for Vaccination Status -->
+              <div class="form-group">
+                <label for="vaccination-status-dropdown-{{ i }}"
+                  >Vaccination Status:</label
+                >
+                <select
+                  id="vaccination-status-dropdown-{{ i }}"
+                  class="form-control"
+                >
+                  <option
+                    *ngFor="let status of member.vaccinationStatus"
+                    [selected]="status === member.vaccinationStatus[0]"
+                  >
+                    {{ status }}
+                  </option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="medical-history-textarea-{{ i }}"
+                  >Medical History:</label
+                >
+                <textarea
+                  id="medical-history-textarea-{{ i }}"
+                  class="form-control"
+                  rows="3"
+                  readonly
+                  >{{ member.medicalHistory }}</textarea
+                >
+              </div>
+
+              <div class="form-group">
+                <label for="infection-professional-textarea-{{ i }}"
+                  >Professional Notes:</label
+                >
+                <textarea
+                  id="infection-professional-textarea-{{ i }}"
+                  class="form-control"
+                  rows="3"
+                  [(ngModel)]="member.notes"
+                  maxlength="1000"
+                  >{{ member.notes }}</textarea
+                >
+                <label
+                  >{{ calculateRemainingCharacters(member) }} characters
+                  remaining</label
+                >
+              </div>
+            </div>
+
+            <button
+              type="button"
+              class="btn btn-primary"
+              *ngIf="member.notes"
+              
+              (click)="submitProfessionalNotes(member)"
+            >
+              Save
+            </button>
+            <ngb-alert
+              *ngIf="member.showSubmitSuccess"
+              type="success"
+              (close)="member.showSubmitSuccess = false"
+            >
+              Successfully added!
+            </ngb-alert>
+          </li>
+        </ul>
+        <ngb-alert
+          *ngIf="showSuccessAlert"
+          type="success"
+          (close)="showSuccessAlert = false"
+        >
+          Staff details saved successfully!
+        </ngb-alert>
+      </div>
+    </div>
+
+    <!-- Vaccine Details Card on the Right -->
+    <div class="col-md-6">
+      <div class="card vaccine-card">
+        <div class="card-header">Vaccine Details</div>
+        <div class="card-search">
+          <input
+            type="text"
+            [(ngModel)]="searchVaccineTerm"
+            (input)="searchVaccines(searchVaccineTerm)"
+            placeholder="Search vaccines..."
+            class="form-control"
+          />
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item" *ngFor="let vaccine of filteredVaccines">
+            <strong>{{ vaccine.diseaseName }}</strong>
+            <p>Effectiveness: {{ vaccine.notes }}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

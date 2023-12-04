@@ -1,0 +1,17 @@
+<div class="card mb-2">
+  <div class="card-body">
+    <!-- <h5 class="card-title">{{ task.title }}</h5> -->
+    <p class="card-text">{{ task.description }}</p>
+    <p class="card-text">
+      <small class="text-muted">{{ task.dueDate | date : "medium" }}</small>
+    </p>
+    <button
+      type="button"
+      class="btn btn-success"
+      (click)="completeTask()"
+      [disabled]="task.status === 'Completed'"
+    >
+      Mark as Complete
+    </button>
+  </div>
+</div>

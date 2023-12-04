@@ -1,0 +1,20 @@
+[
+  {
+    "diseaseName": "Influenza",
+    "effectiveYears": 2,
+    "potentialAllergicReactions": ["Mild fever", "Soreness at injection site"],
+    "notes": "For covid active for 2 years, interaction with diabetes"
+  },
+  {
+    "diseaseName": "COVID-19",
+    "effectiveYears": "Not specified",
+    "potentialAllergicReactions": ["Fatigue", "Headache", "Muscle pain"],
+    "notes": "For covid active for 2 years, interaction with diabetes"
+  },
+  {
+    "diseaseName": "Hepatitis B",
+    "effectiveYears": "Not specified",
+    "potentialAllergicReactions": ["Sore arm", "Mild fever"],
+    "notes": "For covid active for 2 years, interaction with diabetes"
+  }
+]
